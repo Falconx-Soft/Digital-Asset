@@ -9,6 +9,25 @@ from locations.models import Country
 from wiki.main import Wiki
 
 
+
+def Home(request):
+    return render(request, 'car_rentals/home.html')
+
+
+def carList(request):
+    carsObj = Car.objects.all()
+    context = {
+        'carsObj':carsObj
+    }
+    return render(request, 'car_rentals/list.html', context)
+
+def description(request, id):
+    carObj = Car.objects.get(id=id)
+    context = {
+        'carObj':carObj
+    }
+    return render(request, 'car_rentals/details.html', context)
+
 class ManufacturerListView(ListView):
     model = Manufacturer
 

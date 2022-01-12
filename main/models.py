@@ -34,8 +34,8 @@ class BaseIteratedModel(models.Model):
         self.slug = slugify(self.main)
         if self.set_description_flag:
             self.set_description()
-        if self.set_image_flag:
-            self.set_image()
+        # if self.set_image_flag:       SAVING IMAGE ERROR
+        #     self.set_image()
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):

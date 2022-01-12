@@ -16,8 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-
+from car_rentals.views import Home
 urlpatterns = [
+    path('home/', Home, name="home"),
     path('c/', include('locations.urls')),
     path('admin/', admin.site.urls),
     path('rent/', include('car_rentals.urls')),
