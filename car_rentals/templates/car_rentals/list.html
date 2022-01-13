@@ -36,10 +36,17 @@
 		body{
 			background-color: gainsboro;
 		}
+		.bold{
+			font-weight: 800 !important;
+		}
+		.container{
+			width: 80%;
+		}
 	</style>
 {% endblock styles %}
 
 {% block content %}
+<div class="container">
 	{% for car in carsObj %}
 		<div class="container2">
 			<div class="displayCared shadow-lg p-3 mb-5 bg-white rounded">
@@ -48,11 +55,11 @@
 				</div>
 				<div class="objData">
 					<div style="display: flex;">
-						<p><b>Title:</b></p>
+						<p class="bold" style="color:#666666;font-weight:800"><strong>Title:</strong></p>
 						<p style="margin-left: 10px;"><a href="{% url 'description' car.id%}">{{car.slug}}</a></p>
 					</div>
 					<div>
-						<p><b>Description:</b></p>
+						<p class="bold" style="color:#666666;font-weight:800"><strong>Description:</strong></p>
 						<p id="disc">{{car.description}}</p>
 						<p id="discHiden" style="display: none;">{{car.description}}</p>
 					</div>
@@ -60,6 +67,7 @@
 			</div>
 		</div>
 	{% endfor %}
+</div>
 {% endblock content %}
 
 {% block js %}
