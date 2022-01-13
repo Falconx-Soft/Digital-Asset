@@ -51,8 +51,7 @@
 		<div class="container2">
 			<div class="displayCared shadow-lg p-3 mb-5 bg-white rounded" style="display: flex;">
 				<div class="pic">
-					<a href="{% url 'description' car.id%}"><img style="    width: 2212px;
-						padding: 18px;" src="{% static 'car_rentals/assets/car_img1.png' %}" alt="Avatar" class="avatar"></a>
+					<a href="{% url 'description' car.id%}"><img style=" padding: 18px;     min-width: 200px;" src="{% static 'car_rentals/assets/car_img1.png' %}" alt="Avatar" class="avatar"></a>
 				</div>
 				<div class="objData">
 					<div style="display: flex;">
@@ -61,7 +60,7 @@
 					</div>
 					<div>
 						<p class="bold" style="color:#666666;font-weight:800"><strong>Description:</strong></p>
-						<p id="disc">{{car.description}}</p>
+						<p id="disc">{{car.description|truncatechars:300}} <strong><a  onclick="$(this).parent().parent().hide();console.log($(this).parent().parent().next().show())">read more</a> </strong></p>
 						<p id="discHiden" style="display: none;">{{car.description}}</p>
 					</div>
 				</div>
@@ -72,19 +71,6 @@
 {% endblock content %}
 
 {% block js %}
-	  <script>
-		  const disc = document.querySelectorAll("#disc");
-		  const discHiden = document.querySelectorAll("#discHiden");
-		  for(let i=0; i<disc.length; i++){
-			if(disc[i].innerHTML.length > 10){
-				const detail = disc[i].innerHTML;
-				disc[i].innerHTML = disc[i].innerHTML.substring(0, 50)+"... <span style='cursor: pointer; color:blue;' onclick='allDes("+i+")'>Read more</span>";
-			}
-		  }
-
-		  function allDes(id){
-			disc[id].innerHTML = discHiden[id].innerHTML;
-		  }
-	  </script>
+	
 {% endblock js %}
 
