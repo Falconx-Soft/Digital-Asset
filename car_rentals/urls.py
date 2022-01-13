@@ -10,6 +10,6 @@ urlpatterns = [
     # path('<slug:manufacturer_slug>-cars-<slug:car_slug>/', CarDetailView.as_view(), name='car_detail'),
     path('carslist/', carList, name="carlist"),
     path('description/<int:id>/', description, name="description"),
-    re_path('^(?:/(?P<manufacturer_slug>[a-zA-Z]+)|)(?:/(?P<car_slug>[a-zA-Z]+)|)(?:/(?P<country_slug>[a-zA-Z]+))?/$',
+    re_path(r'(?P<manufacturer_slug>[a-zA-Z]+)/(?P<car_slug>[0-9]+)/(?P<country_slug>[a-zA-Z]+)/$',
             AutomaticView.as_view(), name='trial'),
 ]
