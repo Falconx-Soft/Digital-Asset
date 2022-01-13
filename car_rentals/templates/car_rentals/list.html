@@ -49,9 +49,10 @@
 <div class="container">
 	{% for car in carsObj %}
 		<div class="container2">
-			<div class="displayCared shadow-lg p-3 mb-5 bg-white rounded">
+			<div class="displayCared shadow-lg p-3 mb-5 bg-white rounded" style="display: flex;">
 				<div class="pic">
-					<a href="{% url 'description' car.id%}"><img src="{% static 'car_rentals/assets/car_img1.png' %}" alt="Avatar" class="avatar"></a>
+					<a href="{% url 'description' car.id%}"><img style="    width: 2212px;
+						padding: 18px;" src="{% static 'car_rentals/assets/car_img1.png' %}" alt="Avatar" class="avatar"></a>
 				</div>
 				<div class="objData">
 					<div style="display: flex;">
